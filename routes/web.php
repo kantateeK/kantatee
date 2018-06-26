@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('master');
+    return View('welcome');
 });
+route::resource('blog','blogcontroller');

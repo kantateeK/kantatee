@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\name_g;
 
 class blogcontroller extends Controller
 {
@@ -13,7 +14,9 @@ class blogcontroller extends Controller
      */
     public function index()
     {
-        //
+        $blogs=name_g::orderBy('text1', 'asc')->get();
+        return view('blog.index', compact('blogs'));
+
     }
 
     /**
@@ -23,7 +26,8 @@ class blogcontroller extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('blog.create');
     }
 
     /**
@@ -34,7 +38,11 @@ class blogcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,['text1'=>'Required']);
+
+      $blog=$request->all();
+      name_g::create($blog);
+      return redirect('blog');
     }
 
     /**
@@ -56,7 +64,8 @@ class blogcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog=name_g::find($id);
+        return view('blog.edit', compact('blog'));
     }
 
     /**
@@ -68,7 +77,11 @@ class blogcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,['text1'=>'Required']);
+        $blog=name_g::find($id);
+        $blogUpdate=$request->all();
+        $blog->update($blogUpdate);
+        return redirect('blog');
     }
 
     /**
