@@ -7,18 +7,36 @@
 <title>โปรแกรมระบบคุมงบการเงิน</title>
 
 <!-- Bootstrap -->
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-
+<script src="{{asset('js/jq/j/jquery.min.js')}}"></script>
+<script src="{{asset('js/jq/jquery.min.js')}}"></script>
+<link href="{{asset('css/select2.min.css')}}" rel="stylesheet">
 <link href="{{asset('css/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
 <!-- Font Awesome -->
-
+<link href="{{ asset("/bower_components/AdminLTE/plugins/datepicker/datepicker3.css")}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('css/fontawesome/css/font-awesome.min.css')}}" rel="stylesheet">
 <!-- NProgress -->
 <link href="{{asset('css/nprogress/nprogress.css')}}" rel="stylesheet">
 <!-- iCheck -->
 
 <link href="{{asset('css/build/css/custom.min.css')}}" rel="stylesheet">
+<script>
+  $(document).ready(function() {
+    //Date picker
+    $('#birthDate').datepicker({
+      autoclose: true,
+      format: 'yyyy/mm/dd'
+    });
 
+    $('#from').datepicker({
+      autoclose: true,
+      format: 'yyyy/mm/dd'
+    });
+    $('#to').datepicker({
+      autoclose: true,
+      format: 'yyyy/mm/dd'
+    });
+});
+</script>
 
 
 
@@ -49,7 +67,7 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-
+          
         
 
             <!-- sidebar menu -->
@@ -60,8 +78,8 @@
 
                   <li><a><i class="fa fa-home"></i> เมนูหลัก <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="untitled1.php">บันทึกลงรับกระดาษทำการ</a></li>
-                      <li><a href="untitled4.php">บันทึกตรวจทานกระดาษทำการ</a></li>
+                      <li><a href="create">บันทึกลงรับกระดาษทำการ</a></li>
+                      <li><a href="check">บันทึกตรวจทานกระดาษทำการ</a></li>
                       <li><a href="untitled3.php">บันทึกผู้รับผิดชอบสหกรณ์</a></li>
 					  <li><a href="untitled10.php">ตั้งค่ารายชื่อสหกรณ์</a></li>
 					  <li><a href="untitled2.php">ตั้งค่าผู้สอบบัญชี</a></li>
@@ -85,10 +103,24 @@
             <!-- /menu footer buttons -->
      
             <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
           </div>
         </div>
         
-
+    
         <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
@@ -96,12 +128,27 @@
               <div class="nav toggle">
               
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                </div>
-                @yield('content')
-				</body>
+                
+                
+              </div></div>
+
+   
+       
+            </div>
+            </div>
+              @yield('content')
+              </div>
+            
+       
+              </body>
+               
+			
+       
+      
+          
 
 
-
+            
     <!-- Bootstrap -->
     <script src="{{asset('css/bootstrap.min.js')}}"></script>
     <!-- FastClick -->
@@ -118,7 +165,8 @@
     <!-- bootstrap-wysiwyg -->
     <script src="{{asset('css/bootstrap-wysiwyg.min.js')}}"></script>
     <script src="{{asset('css/jquery.hotkeys.js')}}"></script>
-    <script src="{{asset('css/src/prettify.js')}}"></script>
+    <script src="{{asset('css/prettify.js')}}"></script>
+
     <!-- jQuery Tags Input -->
     <script src="{{asset('css/jquery.tagsinput.js')}}"></script>
     <!-- Switchery -->
@@ -126,7 +174,7 @@
     <!-- Select2 -->
     <script src="{{asset('css/select2.full.min.js')}}"></script>
     <!-- Parsley -->
-    <script src="{{asset('css/parsley.min.js')}}"></script>
+
     <!-- Autosize -->
     <script src="{{asset('css/autosize.min.js')}}"></script>
     <!-- jQuery autocomplete -->
@@ -134,5 +182,8 @@
     <!-- starrr -->
     <script src="{{asset('css/starrr.js')}}"></script>
     <!-- Custom Theme Scripts -->
-    <script src="{{asset('css/custom.min.js')}}"></script>
-</html>
+    <script src="{{ asset ("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
+    <script  src="{{ asset ("/bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js") }}" type="text/javascript" ></script>
+    <script src="{{asset('css/build/js/custom.min.js')}}"></script>
+
+    </html>
